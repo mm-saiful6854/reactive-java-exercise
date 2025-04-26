@@ -42,6 +42,12 @@ public class Exercise1 {
                 .map(user -> user.getFirstName())
                 .forEach(n -> System.out.println(n));
 
+        // flatMap takes a stream and gives stream data as a flow of stream.
+        StreamSources.intNumbersStream()
+                .flatMap(number -> StreamSources.userStream()
+                        .filter(user -> user.getId() == number)
+                ).forEach(user -> System.out.println(user));
+
     }
 
 }
